@@ -1,0 +1,139 @@
+</head>
+<body>
+<center>
+    <div class="signbox">
+        <h2>Sign Up</h2>
+        <form id="signInForm" onsubmit="return validateForm()">
+            <div class="sign">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required onblur="validateInput(this)" oninput="retrievePassword()"><br>
+            </div>
+            <div class="sign">
+                <label for="password">Password:</label><br>
+                <input type="password" id="pwd" name="pwd" required onblur="validateInput(this); validatePassword()"><br>
+            </div>
+            <div class="sign">
+                <label for="confirmPassword">Confirm Password:</label><br>
+                <input type="password" id="confirm_Password" name="confirmPassword" required onblur="validateInput(this); validatePassword()"><br>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Remember Me</label><br><br>
+            </div>
+			<div class = "button">
+            <a href="#" class="button" onclick="validateForm()">Submit</a>
+			</div>
+        </form>
+    </div>
+</div></center>
+</body>    
+<script>
+    function validateInput(input) {
+        if (input.value === '') {
+            input.style.border = '3px solid red';
+        } else {
+            input.style.border = '3px solid green';
+        }
+    }
+
+    function validatePassword() {
+        var pwd = document.getElementById('pwd');
+        var confirmPassword = document.getElementById('confirm_Password');
+        if (pwd.value !== confirmPassword.value) {
+            pwd.style.border = '3px solid red';
+            confirmPassword.style.border = '3px solid red';
+        } else {
+            pwd.style.border = '3px solid green';
+            confirmPassword.style.border = '3px solid green';
+        }
+    }
+
+    function validateForm() {
+    var email = document.getElementById('email');
+    var pwd = document.getElementById('pwd');
+    var confirmPassword = document.getElementById('confirm_Password');
+    
+    if (email.value === '' || pwd.value === '' || confirmPassword.value === '') {
+        alert('Please fill out all fields before signing in.');
+        return false
+    }
+
+    if (!email.value.endsWith('@gmail.com')) {
+        alert('Please enter a valid Gmail address.');
+        email.style.border = '3px solid red';
+        return false;
+    }
+
+    if (pwd.value !== confirmPassword.value) {
+        alert('Passwords do not match.');
+        return false;
+    }
+
+    if (document.getElementById('rememberMe').checked) {
+        var remember = JSON.parse(localStorage.getItem('remember') || '{}');
+        remember[email.value] = pwd.value;
+        localStorage.setItem('remember', JSON.stringify(remember));
+    }
+    window.location.href = '	home1.html#HOME';
+    return true;
+}
+
+    function retrievePassword() {
+        var email = document.getElementById('email').value;
+        var remember = JSON.parse(localStorage.getItem('remember') || '{}');
+        if (remember[email]) {
+            document.getElementById('pwd').value = remember[email];
+            document.getElementById('confirm_Password').value = remember[email];
+            document.getElementById('rememberMe').checked = true;
+        }
+    }
+
+    window.onload = function() {
+        var credentials = JSON.parse(localStorage.getItem('credentials') || '{}');
+        for (var email in credentials) {
+            if (credentials.hasOwnProperty(email)) {
+                document.getElementById('email').value = email;
+                document.getElementById('pwd').value = credentials[email];
+                document.getElementById('confirm_Password').value = credentials[email];
+                document.getElementById('rememberMe').checked = true;
+                break; 
+            }
+        }
+    }
+
+		</script>
+			<style>
+				input {
+            border: 2px solid; 
+            border-radius: 4px; 
+            padding: 5px 10px; 
+            transition: border-color 0.3s; 
+        }
+        
+		
+				body {
+				 background-image: url('https://cdn.pixabay.com/animation/2023/03/26/01/15/01-15-42-612_256.gif');
+              background-repeat: no-repeat;
+              background-position: center; 
+	      background-size: 1599px;	
+		  }
+				
+				.signbox {
+						max-width: 35%;
+						height: 50%;
+						padding: 10px;
+						border-radius: 20px;
+						background-color: White;
+						color: black;
+						}
+						.button{
+						max-width: 15%;
+						padding: 10px;
+						border-radius: 20px;
+						background-color: White;
+						color: black;
+						border: 3px solid black;
+						}
+			</style>
+			
+		</html>	

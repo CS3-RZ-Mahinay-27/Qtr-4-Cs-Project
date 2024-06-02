@@ -1,0 +1,117 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<title> Information </title>
+	</head>
+	<body>
+		<div class = "header">
+			<header>
+				<h1>Meteorology: Understanding weather patterns and phenomena</h1>
+			</header>
+			<nav>
+				<ul> <center>
+					<a href="home1.html"><li class="navButton">Back to Home</li></a>
+				</ul> </center>
+			</div>	
+			<span class = "hover-container">
+			<section>
+				<h1 class = "Info">What is Meteorology?</h1>
+				<p class = "hover">Meteorology is a branch of atmospheric sciences studies weather patterns and phenomena </p>			
+			</section>
+			
+			<section>
+				<h1 class = "Info">What do Meteorologists do?</h1>
+				<p class = "hover">Meteorologists observe, understand, and predict atmospheric conditions to help society prepare for and respond to weather-related events. They analyze various factors such as temperature, humidity, air pressure, wind patterns, and precipitation to forecast weather conditions. </p>
+			</section>
+			
+			<section>
+				<h1 class = "Info">What is the history of Meteorology?</h1>
+				<p class = "hover">The study of meteorology dates back millennia, but it was not until the 18th century that the field made significant strides. The 19th century saw modest strides after weather observation networks were established across large regions. Previous attempts at weather prediction relied on historical data. The elucidation of the laws of physics and, more specifically, the development of the computer in the latter half of the 20th century, led to significant breakthroughs in weather forecasting. </p>
+			</section>
+			</span>
+	</body>	
+	<style>
+		*{
+		margin: 0px;
+		}
+			div{
+				height: 250px ;
+				width: 100%;	
+				margin: 0px;
+				padding: auto;
+				border: 3px solid black;
+				}
+				p{
+				font-size: 28px;
+				font-family: Ariel, sans-serif;
+				}
+			header{
+				float: left;
+				font-size: 20px;
+				font-family: Ariel, sans-serif;
+				color: Yellow;
+				}
+			.header{	
+				background-image: url(https://www.iist.ac.in/sites/default/files/departments/conference/hurricane.jpg);
+				background-repeat: no-repeat;
+				background-position: center; 
+				background-size: auto;
+					}
+					.navButton{
+				float: right;
+				margin-top: 175px;
+				margin-right: 70px;
+				list-style-type: none;
+				color: #BDC9D7;
+				background-color: Green;
+				border: 1px solid black;
+				width:211px;
+				}
+				
+			.navButton:hover{
+				background-color: red;
+				transition: .5s;
+				transform: scale(1.05);
+				}
+						section:hover {
+		            transform: scale(1.02);	
+		            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+					}
+					.hover-container {
+					position: relative;
+					}
+					section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+			margin-bottom: 8px;
+			height: auto;
+        }
+		section:hover {
+		            transform: scale(1.02);	
+		            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+					}
+					.hover-container {
+					position: relative;
+					}
+
+					.hover-container .hover {
+					  display: none;
+					}
+
+					.hover-container:hover .original {
+					  display: none;
+					}
+
+					.hover-container:hover .hover {
+					  display: block;
+					 
+					.hover{
+					font-size: 15px;
+					}
+}
+			</style>
+		</html>	
